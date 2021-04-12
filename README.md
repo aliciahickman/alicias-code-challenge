@@ -1,23 +1,41 @@
-# Getting Started with Create React App
+# Alicia's code challenge
+
+An extra simple CRUD table
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting started
+```git clone ...```\
+``` cd alicias-code-challenge```\
+```npm install``` \
+```npm start```
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Now the app is running in development mode.\
+The browser should open [http://localhost:3000](http://localhost:3000) automatically.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+## What's inside
+### JS
+Top level 'App.js': contains the CRUD state logic and defines pages with React-router.
+
+Two page components: MainList and Details. The Details page is the only other file that contains state logic.
+
+All other sub-component pieces are in the 'components' folder. 
+
+### CSS
+
+Each component file has self-contained styling at the bottom. This is my first go at using Emotion.js, looking forward to learning the best-practice methods.\
+Theme variables are in the CSS folder.\
+'Normalize.css' is also imported into index.js.
+
+## Other scripts
+In the project directory, you can also run:
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+My testing knowledge could use some work. Currently my tests are very simple and only test that the components render properly.
 
 ### `npm run build`
 
