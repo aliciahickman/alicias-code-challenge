@@ -5,13 +5,13 @@ import { Theme } from '../css/Theme.js'
 import TextInput from '../components/TextInput'
 import Select from '../components/Select'
 
-const Details = ({isEditing, currentJob, submitJob}) => {
+const Details = ({isEditing, currentJob, handleSubmit, handleCancel}) => {
 
 	const [ job, setJob ] = useState(currentJob)
 
-	const handleSubmit = event => {
+	const submitJob = event => {
 		if (job.title && job.location) {
-			submitJob(job.id, job)
+			handleSubmit(job.id, job)
 			event.preventDefault()
 		}
 		// TODO add better form validation and error states
@@ -72,8 +72,8 @@ const Details = ({isEditing, currentJob, submitJob}) => {
 				</Form>
 			</ModalSegment>
 			<ModalSegment>
-					<Link to={{pathname: "/list"}}><SecondaryButton>Cancel</SecondaryButton></Link>
-					<SubmitButton type="submit" value={!isEditing ? "Add job" : "Save"} onClick={handleSubmit}/>
+					<SecondaryButton onClick={handleCancel}>Cancel</SecondaryButton>
+					<SubmitButton type="submit" value={!isEditing ? "Add job" : "Save"} onClick={submitJob}/>
 			</ModalSegment>
 		</Modal>
 	)

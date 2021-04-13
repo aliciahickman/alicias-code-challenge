@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react';
 import Details from '../_pages/Details'
-import { BrowserRouter } from 'react-router-dom'
 
 describe("Details", () => {
   
@@ -15,12 +14,12 @@ describe("Details", () => {
         sponsorship: 'free',
         status: 'open'
       }
-      render(<BrowserRouter>
-      <Details 
-        isEditing={false}
-        currentJob={currentJob}>
-      </Details>
-      </BrowserRouter>);
+      render(
+        <Details 
+          isEditing={false}
+          currentJob={currentJob}>
+        </Details>
+      );
     });
 
     it('renders correct heading', () => {
@@ -54,12 +53,12 @@ describe("Details", () => {
         sponsorship: 'sponsored',
         status: 'paused'
       }
-      render(<BrowserRouter>
-      <Details 
-        isEditing={true}
-        currentJob={currentJob}>
-      </Details>
-      </BrowserRouter>);
+      render(
+        <Details 
+          isEditing={true}
+          currentJob={currentJob}>
+        </Details>
+      );
     });
 
     it('renders correct heading', () => {

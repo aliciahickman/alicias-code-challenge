@@ -50,7 +50,7 @@ const App = () => {
 	const [ isEditing, setEditing ] = useState(false)
 	const history = useHistory()
 
-	const submitJob = (id, updatedJob) => {
+	const handleSubmit = (id, updatedJob) => {
 		if (isEditing) {
 			setEditing(false)
 			setJobs(jobs.map(job => (job.id === id ? updatedJob : job)))
@@ -80,6 +80,12 @@ const App = () => {
 		setEditing(false)
 		history.push("/details")
 	}
+
+	const handleCancel = () => {
+		setEditing(false)
+		setCurrentJob(emptyJob)
+		history.push("/list")
+	}
 	
 	return (
 		<Div>
@@ -96,7 +102,8 @@ const App = () => {
 						<Details
 							isEditing={isEditing}
 							currentJob={currentJob}
-							submitJob={submitJob} />
+							handleSubmit={handleSubmit} 
+							handleCancel={handleCancel}/>
 					</Route>
 				</Switch>
 			</Wrapper>
