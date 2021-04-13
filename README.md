@@ -27,7 +27,7 @@ All other sub-component pieces are in the 'components' folder.
 ### CSS
 
 Each component file has self-contained styling at the bottom. This is my first go at using Emotion.js, looking forward to learning the best-practice methods.\
-Theme variables are in the CSS folder.\
+Theme variables are in the CSS folder for items like colors, fonts, and other reused pieces.\
 'Normalize.css' is also imported into index.js.
 
 ## Other scripts
