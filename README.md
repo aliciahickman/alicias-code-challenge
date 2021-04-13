@@ -5,7 +5,7 @@ An extra simple CRUD table
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Getting started
-```git clone ...```\
+```git clone git@github.com:aliciahickman/alicias-code-challenge.git```\
 ``` cd alicias-code-challenge```\
 ```npm install``` \
 ```npm start```
@@ -35,7 +35,10 @@ In the project directory, you can also run:
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-My testing knowledge could use some work. Currently my tests are very simple and only test that the components render properly.
+I have room to learn more about testing, my coverage could  be improved. After researching, something like Puppeteer sounds like it would allow me to test across pages more fully.
+
+```npm test -- --coverage ``` \
+Shows test coverage table after running tests.
 
 ### `npm run build`
 
