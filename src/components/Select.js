@@ -4,9 +4,10 @@ import { Theme } from '../css/Theme.js'
 
 const Select = ({label, note, options, value, onChange}) => (
   <>
-    <Label>{label}</Label>
+    <Label htmlFor={label}>{label}</Label>
     <Note>{note}</Note>
     <Selector 
+      id={label}
       value={value} 
       onChange={onChange}>
       {Object.keys(options).map((value, i) => (

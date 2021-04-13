@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Theme } from '../css/Theme.js' 
 
-const JobTable = ({jobs, editRow}) => (
+const JobTable = ({jobs, handleEditClick}) => (
   <Table>
     <Thead>
       <Tr>
@@ -14,26 +14,20 @@ const JobTable = ({jobs, editRow}) => (
       </Tr>
     </Thead>
     <Tbody>
-      {jobs.length > 0 ? (
-        jobs.map(job => (
-          <Tr key={job.id}>
-            <Td>{job.title}<Location>{job.location}</Location></Td>
-            <Td>{job.date}</Td>
-            <Td>{job.sponsorship}</Td>
-            <Td>{job.status}</Td>
-            <Td>
-              <SecondaryButton
-                onClick={() => {editRow(job)}} >
-                Edit
-              </SecondaryButton>
-            </Td>
-          </Tr>
-        ))
-      ) : (
-        <Tr>
-          <Td colSpan={5}>No users</Td>
+      {jobs.map(job => (
+        <Tr key={job.id}>
+          <Td>{job.title}<Location>{job.location}</Location></Td>
+          <Td>{job.date}</Td>
+          <Td>{job.sponsorship}</Td>
+          <Td>{job.status}</Td>
+          <Td>
+            <SecondaryButton
+              onClick={() => {handleEditClick(job)}} >
+              Edit
+            </SecondaryButton>
+          </Td>
         </Tr>
-      )}
+      ))}
     </Tbody>
   </Table>
 )

@@ -36,7 +36,7 @@ const App = () => {
 
 	const date = new Date(Date.now()).toLocaleString().split(',')[0]
 
-	const initialFormState = { 
+	const emptyJob = { 
 		id: null, 
 		title: '', 
 		location: '',
@@ -46,7 +46,7 @@ const App = () => {
 	}
 
 	const [ jobs, setJobs ] = useState(jobData)
-	const [ currentJob, setCurrentJob ] = useState(initialFormState)
+	const [ currentJob, setCurrentJob ] = useState(emptyJob)
 	const [ isEditing, setEditing ] = useState(false)
 	const history = useHistory()
 
@@ -54,7 +54,7 @@ const App = () => {
 		if (isEditing) {
 			setEditing(false)
 			setJobs(jobs.map(job => (job.id === id ? updatedJob : job)))
-			setCurrentJob(initialFormState)
+			setCurrentJob(emptyJob)
 		}
 		else { 
 			updatedJob.id = jobs.length + 1
@@ -63,7 +63,7 @@ const App = () => {
 		history.push("/list")
 	}
 
-	const editRow = job => {
+	const handleEditClick = job => {
 		setEditing(true)
 		setCurrentJob({ 
 			id: job.id, 
@@ -76,6 +76,11 @@ const App = () => {
 		 history.push("/details")
 	}
 
+	const handleAddClick = () => {
+		setEditing(false)
+		history.push("/details")
+	}
+	
 	return (
 		<Div>
 			<TopBar></TopBar>
@@ -84,8 +89,8 @@ const App = () => {
 					<Route exact path={["/", "/list"]}>
 						<MainList 
 							jobs={jobs} 
-							editRow={editRow} 
-							setEditing={setEditing} />
+							handleEditClick={handleEditClick} 
+							handleAddClick={handleAddClick} />
 					</Route>
 					<Route exact path="/details" >
 						<Details

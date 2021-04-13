@@ -14,7 +14,7 @@ const Details = ({isEditing, currentJob, submitJob}) => {
 			submitJob(job.id, job)
 			event.preventDefault()
 		}
-		// TODO better form validation and error states
+		// TODO add better form validation and error states
 	}
 
 	const handleChange = (name, value) => {

@@ -7,12 +7,12 @@ describe("TopBar", () => {
     render(<TopBar />);
   });
   
-  test('renders username', () => {
+  it('renders username', () => {
     const element = screen.getByText(/Julie Howard/i);
     expect(element).toBeInTheDocument();
   });
 
-  test('renders role', () => {
+  it('renders role', () => {
     const element = screen.getByText(/Admin/i);
     expect(element).toBeInTheDocument();
   });

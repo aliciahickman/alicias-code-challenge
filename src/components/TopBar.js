@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Theme } from '../css/Theme.js' 
 
-const TopBar = props => (
+const TopBar = () => (
   <Bar>
     <ProfileWrapper>
       <ProfilePic></ProfilePic>

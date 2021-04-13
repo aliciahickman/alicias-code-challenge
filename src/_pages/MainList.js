@@ -1,26 +1,19 @@
 import React from 'react'
-import { useHistory } from "react-router-dom";
 import styled from '@emotion/styled'
 import { Theme } from '../css/Theme.js' 
 import JobTable from '../components/JobTable'
 
-const MainList = ({jobs, editRow, setEditing}) => {
-  const history = useHistory()
+const MainList = ({jobs, handleEditClick, handleAddClick}) => {
   
-  const handleAddClick = () => {
-		setEditing(false)
-		history.push("/details")
-  }
-
   return (
-  <>
+  <div>
     <TableHeader>
       <Title>Jobs</Title>
       <Count>{jobs.length} listings</Count>
           <PrimaryButton onClick={handleAddClick}>Add job</PrimaryButton>
     </TableHeader>
-    <JobTable jobs={jobs} editRow={editRow} />
-  </>
+    <JobTable jobs={jobs} handleEditClick={handleEditClick} />
+  </div>
   )
 }
 

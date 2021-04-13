@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import JobTable from '../components/JobTable';
+import MainList from '../_pages/Mainlist';
 
-describe("JobTable", () => {
+describe("Mainlist", () => {
   const jobs = [
 		{ 
 			id: 1, 
@@ -27,26 +27,34 @@ describe("JobTable", () => {
 			sponsorship: 'free',
 			status: 'closed' 
 		},
-	]
-	const handleEditClick = jest.fn()
+  ]
+  
+  const handleEditClick = jest.fn()
+  const handleAddClick = jest.fn()
 
   beforeEach(() => {
-    render(<JobTable jobs={jobs} handleEditClick={handleEditClick}/>)
+    render(<MainList 
+        jobs={jobs} 
+        handleEditClick={handleEditClick} 
+        handleAddClick={handleAddClick}
+        />
+        );
   });
   
-  it('renders column name', () => {
-    const element = screen.getByText(/Job title/i)
+  it('renders job count', () => {
+    const element = screen.getByText(/3 listings/i)
     expect(element).toBeInTheDocument()
   });
 
-  it('renders 1 edit button for each job', () => {
-    const element = screen.getAllByText(/Edit/i)
-    expect(element.length).toBe(3)
-	});
-	
-	it('calls handleEditClick prop when clicked', () => {
+  it('calls handleEditClick prop when clicked', () => {
     const button = screen.getAllByText(/Edit/i)
 		fireEvent.click(button[0])
 		expect(handleEditClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('calls handleAddClick prop when clicked', () => {
+    const button = screen.getByText(/Add job/i)
+		fireEvent.click(button)
+		expect(handleAddClick).toHaveBeenCalledTimes(1)
   })
 });
